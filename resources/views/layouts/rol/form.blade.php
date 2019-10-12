@@ -10,4 +10,4 @@
   </div>
 </div>
 <button type="submit" class="btn btn-primary">Submit</button>
-<button class="btn btn-default" type="reset">Cancelar </button>
+<a type="button" href="{{asset('/rol')}}" class="btn btn-default">Cancelar</a>

@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/rol', 'RolController@index');
+Route::get('/rol/create', 'RolController@create');
+Route::post('/rol/store', 'RolController@store');
 Route::get('/rol/edit/{id}', 'RolController@edit');
 Route::post('/rol/update/{id}', 'RolController@update');
 

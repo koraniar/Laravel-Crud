@@ -26,7 +26,7 @@ class RolController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.rol.create');
     }
 
     /**
@@ -37,7 +37,11 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rol = new Rol;
+        $rol->name = $request->name;
+        $rol->save();
+
+        return Redirect('/rol')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
