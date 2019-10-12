@@ -25,7 +25,7 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.business.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $business = new Business;
+        $business->name = $request->name;
+        $business->nit = $request->nit;
+        $business->city = $request->city;
+        $business->save();
+
+        return Redirect('/businesses')->with('message','Saved Successfully!');
     }
 
     /**
@@ -56,9 +62,10 @@ class BusinessController extends Controller
      * @param  \App\Business  $business
      * @return \Illuminate\Http\Response
      */
-    public function edit(Business $business)
+    public function edit($id)
     {
-        //
+        $business = Business::find($id);
+        return view('layouts.business.edit',compact('business'));
     }
 
     /**
@@ -68,9 +75,20 @@ class BusinessController extends Controller
      * @param  \App\Business  $business
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Business $business)
+    public function update(Request $request, $id)
     {
-        //
+        $business = Business::find($id);
+        $this->validate(request(), [
+            'name' => 'required',
+            'nit' => 'required',
+            'city' => 'required',
+        ]);
+        $business->name = $request->name;
+        $business->nit = $request->nit;
+        $business->city = $request->city;
+        $business->save();
+
+        return Redirect('/businesses')->with('message','Saved Successfully!');
     }
 
     /**
@@ -79,8 +97,11 @@ class BusinessController extends Controller
      * @param  \App\Business  $business
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Business $business)
+    public function destroy($id)
     {
-        //
+        $business = Business::find($id);
+        $business->delete();
+
+        return redirect('/businesses');
     }
 }

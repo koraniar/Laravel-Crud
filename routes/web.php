@@ -23,6 +23,11 @@ Route::post('/rols/update/{id}', 'RolController@update');
 Route::get('/rols/destroy/{id}', 'RolController@destroy');
 
 Route::get('/businesses', 'BusinessController@index');
+Route::get('/businesses/create', 'BusinessController@create');
+Route::post('/businesses/store', 'BusinessController@store');
+Route::get('/businesses/edit/{id}', 'BusinessController@edit');
+Route::post('/businesses/update/{id}', 'BusinessController@update');
+Route::get('/businesses/destroy/{id}', 'BusinessController@destroy');
 
 Route::get('/modules', 'ModuleController@index');
 Route::get('/modules/create', 'ModuleController@create');

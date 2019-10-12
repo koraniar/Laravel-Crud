@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <div class="row">
     <a type="button" href="{{asset('/rols/create')}}" class="btn btn-primary">
-      Agregar Rol
+      Add Rol
     </a>
   </div>
 </div>
@@ -32,7 +32,7 @@
               <i class="fas fa-edit"></i>
             </a>
             <a href="{{asset('/rols/destroy/'.$rol->id.'')}}" class="btn btn-danger btn-lg mb-1"
-              onclick="return confirm('Seguro que desea eliminar el rol?')">
+              onclick="return confirm('Are you sure do you want to remove the rol?')">
               <i class="fas fa-times-circle"></i>
             </a>
           </td>

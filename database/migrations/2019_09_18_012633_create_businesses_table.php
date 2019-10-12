@@ -17,7 +17,7 @@ class CreateBusinessesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nit');
             $table->string('name');
-            $table->string('ciudad');
+            $table->string('city');
             $table->softDeletes();
             $table->timestamps();
         });

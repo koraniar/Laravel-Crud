@@ -41,7 +41,7 @@ class ModuleController extends Controller
         $module->route = $request->route;
         $module->save();
 
-        return Redirect('/modules')->with('message','Guardado Satisfactoriamente !');
+        return Redirect('/modules')->with('message','Saved Successfully!');
     }
 
     /**
@@ -78,14 +78,14 @@ class ModuleController extends Controller
     {
         $module = Module::find($id);
         $this->validate(request(), [
-        'name' => 'required',
-        'route' => 'required',
+            'name' => 'required',
+            'route' => 'required',
         ]);
         $module->name = $request->name;
         $module->route = $request->route;
         $module->save();
 
-        return Redirect('/modules')->with('message','Guardado Satisfactoriamente !');
+        return Redirect('/modules')->with('message','Saved Successfully!');
     }
 
     /**

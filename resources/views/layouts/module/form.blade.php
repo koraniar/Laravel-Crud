@@ -1,6 +1,6 @@
 
 <div class="form-group">
-    <label for="" class="negrita">Nombre:</label>
+    <label for="" class="negrita">Name:</label>
     <div>
       @if (!empty($module->name))
         <input class="form-control" value="{{$module->name}}" required="required" name="name" type="text">
@@ -8,7 +8,7 @@
         <input class="form-control" required="required" name="name" type="text">
       @endif
     </div>
-    <label for="" class="negrita">Ruta:</label>
+    <label for="" class="negrita">Route:</label>
     <div>
       @if (!empty($module->route))
         <input class="form-control" value="{{$module->route}}" required="required" name="route" type="text">
@@ -18,5 +18,5 @@
     </div>
 </div>
 <button type="submit" class="btn btn-primary">Submit</button>
-<a type="button" href="{{asset('/modules')}}" class="btn btn-default">Cancelar</a>
+<a type="button" href="{{asset('/modules')}}" class="btn btn-default">Cancel</a>
   

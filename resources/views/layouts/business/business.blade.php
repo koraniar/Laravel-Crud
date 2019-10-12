@@ -1,32 +1,49 @@
 @extends('template.template')
 
 @section('content')
+<div class="container-fluid">
+  <div class="row">
+    <a type="button" href="{{asset('/businesses/create')}}" class="btn btn-primary">
+      Add Business
+    </a>
+  </div>
+</div>
 
-<table class="table table-dark">
-  <thead>
-    <tr>
+<div class="container-fluid">
+  <div class="row">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">nit</th>
+          <th scope="col">name</th>
+          <th scope="col">city</th>
+        </tr>
+      </thead>
+      <tbody>
 
-      <th scope="col">id</th>
-      <th scope="col">nit</th>
-      <th scope="col">name</th>
-      <th scope="col">city</th>
-    </tr>
-  </thead>
-  <tbody>
-
-  @foreach ($businesses as $business)
-    <tr>
-  
-      <td>{{$business->id}}</td>
-      <td>{{$business->nit}}</td>
-      <td>{{$business->name}}</td>
-      <td>{{$business->ciudad}}</td>
-
-    </tr>
-  @endforeach
-  </tbody>
-</table>
-
-
-
+      @foreach ($businesses as $business)
+        <tr>
+          <td>{{$business->id}}</td>
+          <td>{{$business->nit}}</td>
+          <td>{{$business->name}}</td>
+          <td>{{$business->city}}</td>
+          <td>
+            <a href="#!" class="btn btn-primary btn-lg mb-1">
+              <i class="fas fa-list-alt"></i>
+            </a>
+            <a href="{{asset('/businesses/edit/'.$business->id.'')}}" class="btn btn-secondary btn-lg mb-1">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="{{asset('/businesses/destroy/'.$business->id.'')}}" class="btn btn-danger btn-lg mb-1"
+              onclick="return confirm('Are you sure do you want to remove the business?')">
+              <i class="fas fa-times-circle"></i>
+            </a>
+          </td>
+        </tr>
+      @endforeach
+      </tbody>
+    </table>
+  </div>
+</div>
 @endsection

@@ -41,7 +41,7 @@ class RolController extends Controller
         $rol->name = $request->name;
         $rol->save();
 
-        return Redirect('/rols')->with('message','Guardado Satisfactoriamente !');
+        return Redirect('/rols')->with('message','Saved Successfully!');
     }
 
     /**
@@ -78,12 +78,12 @@ class RolController extends Controller
     {
         $rol = Rol::find($id);
         $this->validate(request(), [
-        'name' => 'required',
+            'name' => 'required',
         ]);
         $rol->name = $request->name;
         $rol->save();
 
-        return Redirect('/rols')->with('message','Guardado Satisfactoriamente !');
+        return Redirect('/rols')->with('message','Saved Successfully!');
     }
 
     /**

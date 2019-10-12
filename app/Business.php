@@ -9,6 +9,6 @@ class Business extends Model
     protected $fillable = [
         'name',
         'nit',
-        'ciudad',
+        'city',
     ];
 }
