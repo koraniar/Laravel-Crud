@@ -77,14 +77,13 @@ class RolController extends Controller
     public function update(Request $request, $id)
     {
         $rol = Rol::find($id);
-         $this->validate(request(), [
-            'name' => 'required',
-          ]);
-          $rol->name = $request->name;
-          $rol->save();
+        $this->validate(request(), [
+        'name' => 'required',
+        ]);
+        $rol->name = $request->name;
+        $rol->save();
 
-
-          return Redirect('/rols')->with('message','Guardado Satisfactoriamente !');
+        return Redirect('/rols')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**

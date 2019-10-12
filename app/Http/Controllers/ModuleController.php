@@ -25,7 +25,7 @@ class ModuleController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.module.create');
     }
 
     /**
@@ -36,7 +36,12 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $module = new Module;
+        $module->name = $request->name;
+        $module->route = $request->route;
+        $module->save();
+
+        return Redirect('/modules')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -56,9 +61,10 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function edit(Module $module)
+    public function edit($id)
     {
-        //
+        $module = Module::find($id);
+        return view('layouts.module.edit',compact('module'));
     }
 
     /**
@@ -68,9 +74,18 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Module $module)
+    public function update(Request $request, $id)
     {
-        //
+        $module = Module::find($id);
+        $this->validate(request(), [
+        'name' => 'required',
+        'route' => 'required',
+        ]);
+        $module->name = $request->name;
+        $module->route = $request->route;
+        $module->save();
+
+        return Redirect('/modules')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -79,8 +94,11 @@ class ModuleController extends Controller
      * @param  \App\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Module $module)
+    public function destroy($id)
     {
-        //
+        $module = Module::find($id);
+        $module->delete();
+
+        return redirect('/modules');
     }
 }

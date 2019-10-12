@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <div class="row">
     <a type="button" href="{{asset('/rols/create')}}" class="btn btn-primary">
-      Agregar Nuevo
+      Agregar Rol
     </a>
   </div>
 </div>
@@ -22,7 +22,6 @@
 
       @foreach ($rols as $rol)
         <tr>
-      
           <td> {{$rol->id}} </td>
           <td>{{$rol->name}}</td>
           <td>

@@ -25,5 +25,10 @@ Route::get('/rols/destroy/{id}', 'RolController@destroy');
 Route::get('/businesses', 'BusinessController@index');
 
 Route::get('/modules', 'ModuleController@index');
+Route::get('/modules/create', 'ModuleController@create');
+Route::post('/modules/store', 'ModuleController@store');
+Route::get('/modules/edit/{id}', 'ModuleController@edit');
+Route::post('/modules/update/{id}', 'ModuleController@update');
+Route::get('/modules/destroy/{id}', 'ModuleController@destroy');
 
 Route::get('/users', 'UserController@index');
