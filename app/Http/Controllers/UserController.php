@@ -15,7 +15,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        // return response()->json([ 'users' => $users ]);
         return view('layouts.user.user', compact('users'));
     }
 
@@ -26,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.user.create');
     }
 
     /**
@@ -37,7 +36,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        return Redirect('/users')->with('message','Saved Successfully!');
     }
 
     /**
@@ -57,9 +62,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('layouts.user.edit',compact('user'));
     }
 
     /**
@@ -69,9 +75,20 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        return Redirect('/users')->with('message','Saved Successfully!');
     }
 
     /**
@@ -80,8 +97,11 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('/users');
     }
 }

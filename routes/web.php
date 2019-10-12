@@ -37,3 +37,8 @@ Route::post('/modules/update/{id}', 'ModuleController@update');
 Route::get('/modules/destroy/{id}', 'ModuleController@destroy');
 
 Route::get('/users', 'UserController@index');
+Route::get('/users/create', 'UserController@create');
+Route::post('/users/store', 'UserController@store');
+Route::get('/users/edit/{id}', 'UserController@edit');
+Route::post('/users/update/{id}', 'UserController@update');
+Route::get('/users/destroy/{id}', 'UserController@destroy');
