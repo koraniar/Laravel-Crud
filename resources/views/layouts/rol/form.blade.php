@@ -1,6 +1,6 @@
 
 <div class="form-group">
-  <label for="" class="negrita">Nombre rol:</label>
+  <label for="" class="negrita">Nombre:</label>
   <div>
     @if (!empty($rol->name))
       <input class="form-control" value="{{ $rol->name}}" required="required" name="name" type="text">
@@ -10,4 +10,4 @@
   </div>
 </div>
 <button type="submit" class="btn btn-primary">Submit</button>
-<a type="button" href="{{asset('/rol')}}" class="btn btn-default">Cancelar</a>
+<a type="button" href="{{asset('/rols')}}" class="btn btn-default">Cancelar</a>

@@ -15,14 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/rol', 'RolController@index');
-Route::get('/rol/create', 'RolController@create');
-Route::post('/rol/store', 'RolController@store');
-Route::get('/rol/edit/{id}', 'RolController@edit');
-Route::post('/rol/update/{id}', 'RolController@update');
+Route::get('/rols', 'RolController@index');
+Route::get('/rols/create', 'RolController@create');
+Route::post('/rols/store', 'RolController@store');
+Route::get('/rols/edit/{id}', 'RolController@edit');
+Route::post('/rols/update/{id}', 'RolController@update');
+Route::get('/rols/destroy/{id}', 'RolController@destroy');
 
-Route::get('/business', 'BusinessController@index');
+Route::get('/businesses', 'BusinessController@index');
 
-Route::get('/module', 'ModuleController@index');
+Route::get('/modules', 'ModuleController@index');
 
-Route::get('/user', 'UserController@index');
+Route::get('/users', 'UserController@index');

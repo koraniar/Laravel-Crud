@@ -41,7 +41,7 @@ class RolController extends Controller
         $rol->name = $request->name;
         $rol->save();
 
-        return Redirect('/rol')->with('message','Guardado Satisfactoriamente !');
+        return Redirect('/rols')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -84,7 +84,7 @@ class RolController extends Controller
           $rol->save();
 
 
-          return Redirect('/rol')->with('message','Guardado Satisfactoriamente !');
+          return Redirect('/rols')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -93,8 +93,11 @@ class RolController extends Controller
      * @param  \App\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rol $rol)
+    public function destroy($id)
     {
-        //
+        $rol = Rol::find($id);
+        $rol->delete();
+
+        return redirect('/rols');
     }
 }
