@@ -3,8 +3,8 @@
 @section('content')
 <div class="container-fluid">
   <div class="row">
-    <a type="button" href="{{asset('/rols/create')}}" class="btn btn-primary">
-      Add Rol
+    <a type="button" href="{{asset('/roles/create')}}" class="btn btn-primary">
+      Add Role
     </a>
   </div>
 </div>
@@ -20,19 +20,19 @@
       </thead>
       <tbody>
 
-      @foreach ($rols as $rol)
+      @foreach ($roles as $role)
         <tr>
-          <td> {{$rol->id}} </td>
-          <td>{{$rol->name}}</td>
+          <td> {{$role->id}} </td>
+          <td>{{$role->name}}</td>
           <td>
             <a href="#!" class="btn btn-primary btn-lg mb-1">
               <i class="fas fa-list-alt"></i>
             </a>
-            <a href="{{asset('/rols/edit/'.$rol->id.'')}}" class="btn btn-secondary btn-lg mb-1">
+            <a href="{{asset('/roles/edit/'.$role->id.'')}}" class="btn btn-secondary btn-lg mb-1">
               <i class="fas fa-edit"></i>
             </a>
-            <a href="{{asset('/rols/destroy/'.$rol->id.'')}}" class="btn btn-danger btn-lg mb-1"
-              onclick="return confirm('Are you sure do you want to remove the rol?')">
+            <a href="{{asset('/roles/destroy/'.$role->id.'')}}" class="btn btn-danger btn-lg mb-1"
+              onclick="return confirm('Are you sure do you want to remove the role?')">
               <i class="fas fa-times-circle"></i>
             </a>
           </td>

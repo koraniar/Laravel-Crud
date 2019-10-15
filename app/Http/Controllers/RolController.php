@@ -14,9 +14,9 @@ class RolController extends Controller
      */
     public function index()
     {
-        $rols = Rol::all();
-        // return response()->json([ 'rol' => $rols ]);
-        return view('layouts.rol.rol', compact('rols'));
+        $roles = Rol::all();
+        // return response()->json([ 'role' => $roles ]);
+        return view('layouts.rol.rol', compact('roles'));
     }
 
     /**
@@ -37,20 +37,20 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        $rol = new Rol;
-        $rol->name = $request->name;
-        $rol->save();
+        $role = new Rol;
+        $role->name = $request->name;
+        $role->save();
 
-        return Redirect('/rols')->with('message','Saved Successfully!');
+        return Redirect('/roles')->with('message','Saved Successfully!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rol  $rol
+     * @param  \App\Rol  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Rol $rol)
+    public function show(Rol $role)
     {
         //
     }
@@ -58,45 +58,45 @@ class RolController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Rol  $rol
+     * @param  \App\Rol  $role
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $rol = Rol::find($id);
-        return view('layouts.rol.edit',compact('rol'));
+        $role = Rol::find($id);
+        return view('layouts.rol.edit',compact('role'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rol  $rol
+     * @param  \App\Rol  $role
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $rol = Rol::find($id);
+        $role = Rol::find($id);
         $this->validate(request(), [
             'name' => 'required',
         ]);
-        $rol->name = $request->name;
-        $rol->save();
+        $role->name = $request->name;
+        $role->save();
 
-        return Redirect('/rols')->with('message','Saved Successfully!');
+        return Redirect('/roles')->with('message','Saved Successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Rol  $rol
+     * @param  \App\Rol  $role
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $rol = Rol::find($id);
-        $rol->delete();
+        $role = Rol::find($id);
+        $role->delete();
 
-        return redirect('/rols');
+        return redirect('/roles');
     }
 }

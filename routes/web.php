@@ -12,15 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.home.home');
 });
 
-Route::get('/rols', 'RolController@index');
-Route::get('/rols/create', 'RolController@create');
-Route::post('/rols/store', 'RolController@store');
-Route::get('/rols/edit/{id}', 'RolController@edit');
-Route::post('/rols/update/{id}', 'RolController@update');
-Route::get('/rols/destroy/{id}', 'RolController@destroy');
+Route::get('/roles', 'RolController@index');
+Route::get('/roles/create', 'RolController@create');
+Route::post('/roles/store', 'RolController@store');
+Route::get('/roles/edit/{id}', 'RolController@edit');
+Route::post('/roles/update/{id}', 'RolController@update');
+Route::get('/roles/destroy/{id}', 'RolController@destroy');
 
 Route::get('/businesses', 'BusinessController@index');
 Route::get('/businesses/create', 'BusinessController@create');
