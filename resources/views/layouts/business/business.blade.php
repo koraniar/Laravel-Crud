@@ -1,6 +1,13 @@
 @extends('template.template')
 
 @section('content')
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{asset('/')}}">Home</a></li>
+    <li class="breadcrumb-item" aria-current="page">Businesses</li>
+  </ol>
+</nav>
+
 <div class="container-fluid">
   <div class="row">
     <a type="button" href="{{asset('/businesses/create')}}" class="btn btn-primary">

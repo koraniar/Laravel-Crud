@@ -6,12 +6,36 @@
     </div>
     <div class="navi">
         <ul>
-            <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-            <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workflow</span></a></li>
-            <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a></li>
-            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calender</span></a></li>
-            <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
-            <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
+            <li class="{{explode('/', Route::getFacadeRoot()->current()->uri())[0] === '' ? 'active' : ''}}">
+                <a href="{{asset('/')}}">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm">Home</span>
+                </a>
+            </li>
+            <li class="{{explode('/', Route::getFacadeRoot()->current()->uri())[0] === 'roles' ? 'active' : ''}}">
+                <a href="{{asset('/roles')}}">
+                    <i class="fa fa-user-tag" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm">Roles</span>
+                </a>
+            </li>
+            <li class="{{explode('/', Route::getFacadeRoot()->current()->uri())[0] === 'users' ? 'active' : ''}}">
+                <a href="{{asset('/users')}}">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm">Users</span>
+                </a>
+            </li>
+            <li class="{{explode('/', Route::getFacadeRoot()->current()->uri())[0] === 'businesses' ? 'active' : ''}}">
+                <a href="{{asset('/businesses')}}">
+                    <i class="fa fa-building" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm">Businesses</span>
+                </a>
+            </li>
+            <li class="{{explode('/', Route::getFacadeRoot()->current()->uri())[0] === 'modules' ? 'active' : ''}}">
+                <a href="{{asset('/modules')}}">
+                    <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm">Modules</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

@@ -1,46 +1,28 @@
 @extends('template.template')
-@section('style')
-<link rel="stylesheet" href="css/home.css">
-@endsection
+
 @section('content')
-
 <div class="user-dashboard">
-    <h1>Hello, JS</h1>
-    <div class="row">
-        <div class="col-md-5 col-sm-5 col-xs-12 gutter">
-
-            <div class="sales">
-                <h2>Your Sale</h2>
-
-                <div class="btn-group">
-                    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span>Period:</span> Last Year
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="#">2012</a>
-                        <a href="#">2014</a>
-                        <a href="#">2015</a>
-                        <a href="#">2016</a>
-                    </div>
-                </div>
-            </div>
+    <h1>Crud</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <a type="button" href="{{asset('/modules')}}" class="btn btn-primary">
+                Modules
+            </a>
         </div>
-        <div class="col-md-7 col-sm-7 col-xs-12 gutter">
-
-            <div class="sales report">
-                <h2>Report</h2>
-                <div class="btn-group">
-                    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span>Period:</span> Last Year
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="#">2012</a>
-                        <a href="#">2014</a>
-                        <a href="#">2015</a>
-                        <a href="#">2016</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row">
+            <a type="button" href="{{asset('/roles')}}" class="btn btn-primary">
+                Roles
+            </a>
+        </div>
+        <div class="row">
+            <a type="button" href="{{asset('/businesses')}}" class="btn btn-primary">
+                Businesses
+            </a>
+        </div>
+        <div class="row">
+            <a type="button" href="{{asset('/users')}}" class="btn btn-primary">
+                Users
+            </a>
         </div>
     </div>
 </div>
