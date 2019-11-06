@@ -68,6 +68,15 @@ class UserController extends Controller
         return view('layouts.user.edit',compact('user'));
     }
 
+    public function changeActive($id, $active)
+    {
+        $user = User::find($id);
+        $user->active = $active;
+        $user->save();
+
+        return Redirect('/users')->with('message','Saved Successfully!');
+    }
+
     /**
      * Update the specified resource in storage.
      *

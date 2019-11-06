@@ -42,3 +42,4 @@ Route::post('/users/store', 'UserController@store');
 Route::get('/users/edit/{id}', 'UserController@edit');
 Route::post('/users/update/{id}', 'UserController@update');
 Route::get('/users/destroy/{id}', 'UserController@destroy');
+Route::get('/users/changeactive/{id}/{active}', 'UserController@changeActive');

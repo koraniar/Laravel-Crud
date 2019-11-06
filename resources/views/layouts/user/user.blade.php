@@ -25,6 +25,7 @@
           <th scope="col">name</th>
           <th scope="col">email</th>
           <th scope="col">email verified at</th>
+          <th scope="col">active</th>
           <th scope="col">password</th>
         </tr>
       </thead>
@@ -36,6 +37,7 @@
           <td>{{$user->name}}</td>
           <td>{{$user->email}}</td>
           <td>{{$user->email_verified_at}}</td>
+          <td>{{$user->active ? "True" : "False"}}</td>
           <td>{{$user->password}}</td>
           <td>
             <a href="#!" class="btn btn-primary btn-lg mb-1">
@@ -47,6 +49,9 @@
             <a href="{{asset('/users/destroy/'.$user->id.'')}}" class="btn btn-danger btn-lg mb-1"
               onclick="return confirm('Are you sure do you want to remove the user?')">
               <i class="fas fa-times-circle"></i>
+            </a>
+            <a href="{{asset('/users/changeactive/'.$user->id.'/'.($user->active ? 0 : 1).'')}}" class="btn btn-secondary btn-lg mb-1">
+              <i class="fas fa-{{$user->active ? 'unlock' : 'lock'}}"></i>
             </a>
           </td>
         </tr>
