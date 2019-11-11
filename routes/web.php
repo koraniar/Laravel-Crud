@@ -43,3 +43,7 @@ Route::get('/users/edit/{id}', 'UserController@edit');
 Route::post('/users/update/{id}', 'UserController@update');
 Route::get('/users/destroy/{id}', 'UserController@destroy');
 Route::get('/users/changeactive/{id}/{active}', 'UserController@changeActive');
+Route::get('/users/roles/{id}', 'UserController@roles');
+Route::get('/users/roles/add/{id}', 'UserController@addRoles');
+Route::get('/users/roles/assign/{id}/{roleid}', 'UserController@assignRole');
+Route::get('/users/roles/unassign/{id}/{roleid}', 'UserController@unassignRole');

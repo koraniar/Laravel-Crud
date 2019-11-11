@@ -16,9 +16,9 @@ class CreateRolUserTable extends Migration
         Schema::create('rol_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->unsigned();
-            $table->unsignedBigInteger('role_id')->unsigned();
+            $table->unsignedBigInteger('rol_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('rols')->onDelete('cascade');
+            $table->foreign('rol_id')->references('id')->on('rols')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

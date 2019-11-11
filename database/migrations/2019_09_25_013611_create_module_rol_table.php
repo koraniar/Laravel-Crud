@@ -15,9 +15,9 @@ class CreateModuleRolTable extends Migration
     {
         Schema::create('module_rol', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('role_id')->unsigned();
+            $table->unsignedBigInteger('rol_id')->unsigned();
             $table->unsignedBigInteger('module_id')->unsigned();
-            $table->foreign('role_id')->references('id')->on('rols')->onDelete('cascade');
+            $table->foreign('rol_id')->references('id')->on('rols')->onDelete('cascade');
             $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

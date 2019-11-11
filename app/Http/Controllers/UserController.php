@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Rol;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -112,5 +113,55 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('/users');
+    }
+
+    public function roles($id)
+    {
+        $user = User::find($id);
+        return view('layouts.user.roles',compact('user'));
+    }
+
+    public function addRoles($id)
+    {
+        $user = User::find($id);
+        $allRoles = Rol::all();
+        $roles = [];
+
+
+        foreach ($allRoles as $role) {
+            $add = true;
+            foreach ($user->roles as $userRole) {
+                if ($role->id == $userRole->id) {
+                    $add = false;
+                    break;
+                }
+            }
+
+            if ($add) {
+                array_push($roles, $role);
+            }
+        }
+
+        return view('layouts.user.addrole',compact('user', 'roles'));
+    }
+
+    public function assignRole($id, $roleid)
+    {
+        $user = User::find($id);
+        $rol = Rol::find($roleid);
+
+        $user->roles()->attach($rol);
+
+        return Redirect('/users/roles/'.$id)->with('message','Saved Successfully!');
+    }
+
+    public function unassignRole($id, $roleid)
+    {
+        $user = User::find($id);
+        $rol = Rol::find($roleid);
+
+        $user->roles()->detach($rol);
+
+        return Redirect('/users/roles/'.$id)->with('message','Saved Successfully!');
     }
 }

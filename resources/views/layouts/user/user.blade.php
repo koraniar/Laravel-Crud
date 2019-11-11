@@ -53,6 +53,9 @@
             <a href="{{asset('/users/changeactive/'.$user->id.'/'.($user->active ? 0 : 1).'')}}" class="btn btn-secondary btn-lg mb-1">
               <i class="fas fa-{{$user->active ? 'unlock' : 'lock'}}"></i>
             </a>
+            <a href="{{asset('/users/roles/'.$user->id.'')}}" class="btn btn-secondary btn-lg mb-1">
+              <i class="fas fa-edit"></i>
+            </a>
           </td>
         </tr>
       @endforeach
