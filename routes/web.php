@@ -21,6 +21,10 @@ Route::post('/roles/store', 'RolController@store');
 Route::get('/roles/edit/{id}', 'RolController@edit');
 Route::post('/roles/update/{id}', 'RolController@update');
 Route::get('/roles/destroy/{id}', 'RolController@destroy');
+Route::get('/roles/modules/{id}', 'RolController@modules');
+Route::get('/roles/modules/add/{id}', 'RolController@addModules');
+Route::get('/roles/modules/assign/{id}/{moduleid}', 'RolController@assignModule');
+Route::get('/roles/modules/unassign/{id}/{moduleid}', 'RolController@unassignModule');
 
 Route::get('/businesses', 'BusinessController@index');
 Route::get('/businesses/create', 'BusinessController@create');
@@ -49,5 +53,5 @@ Route::get('/users/roles/assign/{id}/{roleid}', 'UserController@assignRole');
 Route::get('/users/roles/unassign/{id}/{roleid}', 'UserController@unassignRole');
 Route::get('/users/businesses/{id}', 'UserController@businesses');
 Route::get('/users/businesses/add/{id}', 'UserController@addBusinesses');
-Route::get('/users/businesses/assign/{id}/{roleid}', 'UserController@assignBusiness');
-Route::get('/users/businesses/unassign/{id}/{roleid}', 'UserController@unassignBusiness');
+Route::get('/users/businesses/assign/{id}/{businessid}', 'UserController@assignBusiness');
+Route::get('/users/businesses/unassign/{id}/{businessid}', 'UserController@unassignBusiness');

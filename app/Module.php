@@ -10,4 +10,8 @@ class Module extends Model
         'name',
         'route',
     ];
+
+    public function roles() {
+        return $this->belongsToMany('App\Rol')->withTimestamps();
+    }
 }

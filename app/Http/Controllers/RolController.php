@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Rol;
+use App\Module;
 use Illuminate\Http\Request;
 
 class RolController extends Controller
@@ -98,5 +99,55 @@ class RolController extends Controller
         $role->delete();
 
         return redirect('/roles');
+    }
+
+    public function modules($id)
+    {
+        $role = Rol::find($id);
+        return view('layouts.rol.modules',compact('role'));
+    }
+
+    public function addModules($id)
+    {
+        $role = Rol::find($id);
+        $allModules = Module::all();
+        $modules = [];
+
+
+        foreach ($allModules as $module) {
+            $add = true;
+            foreach ($role->modules as $roleModule) {
+                if ($module->id == $roleModule->id) {
+                    $add = false;
+                    break;
+                }
+            }
+
+            if ($add) {
+                array_push($modules, $module);
+            }
+        }
+
+        return view('layouts.rol.addmodule',compact('role', 'modules'));
+    }
+
+    public function assignModule($id, $moduleId)
+    {
+        $role = Rol::find($id);
+        $module = Module::find($moduleId);
+
+        $role->modules()->attach($module);
+
+        return Redirect('/roles/modules/'.$id)->with('message','Saved Successfully!');
+    }
+
+    public function unassignModule($id, $moduleId)
+    {
+        $role = Rol::find($id);
+        $module = Module::find($moduleId);
+
+        $role->modules()->detach($module);
+
+        return Redirect('/roles/modules/'.$id)->with('message','Saved Successfully!');
     }
 }

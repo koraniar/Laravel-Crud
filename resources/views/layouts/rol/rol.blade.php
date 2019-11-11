@@ -42,6 +42,9 @@
               onclick="return confirm('Are you sure do you want to remove the role?')">
               <i class="fas fa-times-circle"></i>
             </a>
+            <a href="{{asset('/roles/modules/'.$role->id.'')}}" class="btn btn-secondary btn-lg mb-1">
+              <i class="fas fa-edit"></i>
+            </a>
           </td>
         </tr>
       @endforeach
