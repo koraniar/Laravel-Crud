@@ -56,6 +56,9 @@
             <a href="{{asset('/users/roles/'.$user->id.'')}}" class="btn btn-secondary btn-lg mb-1">
               <i class="fas fa-edit"></i>
             </a>
+            <a href="{{asset('/users/businesses/'.$user->id.'')}}" class="btn btn-secondary btn-lg mb-1">
+              <i class="fas fa-edit"></i>
+            </a>
           </td>
         </tr>
       @endforeach

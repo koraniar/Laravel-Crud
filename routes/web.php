@@ -47,3 +47,7 @@ Route::get('/users/roles/{id}', 'UserController@roles');
 Route::get('/users/roles/add/{id}', 'UserController@addRoles');
 Route::get('/users/roles/assign/{id}/{roleid}', 'UserController@assignRole');
 Route::get('/users/roles/unassign/{id}/{roleid}', 'UserController@unassignRole');
+Route::get('/users/businesses/{id}', 'UserController@businesses');
+Route::get('/users/businesses/add/{id}', 'UserController@addBusinesses');
+Route::get('/users/businesses/assign/{id}/{roleid}', 'UserController@assignBusiness');
+Route::get('/users/businesses/unassign/{id}/{roleid}', 'UserController@unassignBusiness');

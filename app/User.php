@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Rol;
+use App\Business;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -40,5 +41,9 @@ class User extends Authenticatable
 
     public function roles() {
         return $this->belongsToMany('App\Rol')->withTimestamps();
+    }
+
+    public function businesses() {
+        return $this->belongsToMany('App\Business')->withTimestamps();
     }
 }

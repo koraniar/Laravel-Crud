@@ -11,4 +11,8 @@ class Business extends Model
         'nit',
         'city',
     ];
+
+    public function users() {
+        return $this->belongsToMany('App\User')->withTimestamps();
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Rol;
+use App\Business;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -163,5 +164,55 @@ class UserController extends Controller
         $user->roles()->detach($rol);
 
         return Redirect('/users/roles/'.$id)->with('message','Saved Successfully!');
+    }
+
+    public function businesses($id)
+    {
+        $user = User::find($id);
+        return view('layouts.user.businesses',compact('user'));
+    }
+
+    public function addBusinesses($id)
+    {
+        $user = User::find($id);
+        $allBusinesses = Business::all();
+        $businesses = [];
+
+
+        foreach ($allBusinesses as $business) {
+            $add = true;
+            foreach ($user->businesses as $userBusiness) {
+                if ($business->id == $userBusiness->id) {
+                    $add = false;
+                    break;
+                }
+            }
+
+            if ($add) {
+                array_push($businesses, $business);
+            }
+        }
+
+        return view('layouts.user.addbusiness',compact('user', 'businesses'));
+    }
+
+    public function assignBusiness($id, $businessid)
+    {
+        $user = User::find($id);
+        $business = Business::find($businessid);
+
+        $user->businesses()->attach($business);
+
+        return Redirect('/users/businesses/'.$id)->with('message','Saved Successfully!');
+    }
+
+    public function unassignBusiness($id, $businessid)
+    {
+        $user = User::find($id);
+        $business = Business::find($businessid);
+
+        $user->businesses()->detach($business);
+
+        return Redirect('/users/businesses/'.$id)->with('message','Saved Successfully!');
     }
 }
