@@ -51,13 +51,16 @@
               <i class="fas fa-times-circle"></i>
             </a>
             <a href="{{asset('/users/changeactive/'.$user->id.'/'.($user->active ? 0 : 1).'')}}" class="btn btn-secondary btn-lg mb-1">
-              <i class="fas fa-{{$user->active ? 'unlock' : 'lock'}}"></i>
+              <i
+                class="fas fa-{{$user->active ? 'unlock' : 'lock'}}"
+                style="{{$user->active ? '' : 'color: #d9534f;'}}"
+              ></i>
             </a>
-            <a href="{{asset('/users/roles/'.$user->id.'')}}" class="btn btn-secondary btn-lg mb-1">
-              <i class="fas fa-edit"></i>
+            <a href="{{asset('/users/roles/'.$user->id.'')}}" class="btn btn-primary btn-lg mb-1">
+              <i class="fas fa-user-tag"></i>
             </a>
             <a href="{{asset('/users/businesses/'.$user->id.'')}}" class="btn btn-secondary btn-lg mb-1">
-              <i class="fas fa-edit"></i>
+              <i class="fas fa-building"></i>
             </a>
           </td>
         </tr>
